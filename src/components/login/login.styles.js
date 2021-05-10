@@ -56,3 +56,57 @@ export const SignInButton = styled.a`
     text-decoration: none;
   }
 `;
+
+export const MainSection = styled.section`
+  display: flex;
+  align-content: center;
+  min-height: 700px;
+  padding: 40px 0 138px 0;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1128px;
+  align-items: center;
+  margin: auto;
+
+  @media (max-width: 768px) {
+    margin: auto;
+    min-height: 0;
+  }
+`;
+
+export const SectionContent = styled.div`
+  width: 100%;
+
+  h1 {
+    padding-bottom: 0;
+    width: 55%;
+    font-size: 56px;
+    color: #2977c9;
+    font-weight: 200;
+    line-height: 70px;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      font-size: 20px;
+      width: 100%;
+      line-height: 2;
+    }
+  }
+
+  img {
+    /* z-index: -99; */
+    width: 700px;
+    height: 670px;
+    position: absolute;
+    bottom: -2px;
+    right: -150px;
+
+    @media (max-width: 768px) {
+      top: 230px;
+      height: initial;
+      position: initial;
+      width: initial;
+    }
+  }
+`;
