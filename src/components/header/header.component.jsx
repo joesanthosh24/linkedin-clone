@@ -11,6 +11,7 @@ import {
   NavList,
   User,
   Work,
+  SignOut,
 } from "./header.styles";
 
 const Header = () => {
@@ -70,6 +71,9 @@ const Header = () => {
                   <img src="/images/down-icon.svg" alt="Dropdown" />
                 </span>
               </a>
+              <SignOut>
+                <a href="/">Sign Out</a>
+              </SignOut>
             </User>
             <Work>
               <a href="/work">
