@@ -81,6 +81,21 @@ export const NavListWrap = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   list-style-type: none;
+
+  .active {
+    color: #000;
+    border-bottom: 2px solid;
+
+    span:after {
+      content: "";
+      transform: scaleX(1);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      transform: transform 0.2s ease-in-out;
+      border-color: rgba(0, 0, 0, 0.9);
+    }
+  }
 `;
 
 export const NavList = styled.li`
@@ -120,4 +135,25 @@ export const NavList = styled.li`
       }
     }
   }
+`;
+
+export const User = styled(NavList)`
+  a > svg {
+    width: 24px;
+  }
+
+  a > img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+export const Work = styled(User)`
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 `;
