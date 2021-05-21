@@ -1,6 +1,6 @@
 import {
   Container,
-  Card,
+  ProfileCard,
   UserInfo,
   CardBackground,
   Photo,
@@ -8,12 +8,13 @@ import {
   AddPhotoText,
   Widget,
   Item,
+  CommunityCard,
 } from "./left-sidebar.styles";
 
 const LeftSidebar = () => {
   return (
     <Container>
-      <Card>
+      <ProfileCard>
         <UserInfo>
           <CardBackground />
           <a>
@@ -39,7 +40,24 @@ const LeftSidebar = () => {
           </span>
           <span className="item-text">My Items</span>
         </Item>
-      </Card>
+      </ProfileCard>
+      <CommunityCard>
+        <a>
+          <span>Groups</span>
+        </a>
+        <a>
+          <span className="community__events">
+            Events
+            <img src="/images/plus-icon.svg" alt="Plus" />
+          </span>
+        </a>
+        <a>
+          <span>Follows Hashtags</span>
+        </a>
+        <a className="community__discover">
+          <span>Discover More</span>
+        </a>
+      </CommunityCard>
     </Container>
   );
 };

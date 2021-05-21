@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-right: 10px;
 `;
 
-export const Card = styled.div`
+export const ProfileCard = styled.div`
   text-align: center;
   overflow: hidden;
   margin-bottom: 8px;
@@ -112,5 +112,43 @@ export const Item = styled.a`
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
+  }
+`;
+
+export const CommunityCard = styled(ProfileCard)`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  a {
+    color: black;
+    font-size: 12px;
+    padding: 5px 0 5px 10px;
+
+    &:hover {
+      color: #0a66c2;
+    }
+
+    &.community__discover {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+
+      &.community__events > img {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+    }
   }
 `;
