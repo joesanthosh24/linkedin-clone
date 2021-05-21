@@ -63,13 +63,19 @@ export const Avatar = styled.div`
 
 export const Recommendations = styled.div`
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   color: #0a66c2;
   margin-top: 5px;
-  font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
 
   img {
     margin-left: 10px;
+  }
+`;
+
+export const BannerCard = styled(FollowCard)`
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
