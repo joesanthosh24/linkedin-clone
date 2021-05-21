@@ -63,3 +63,54 @@ export const AddPhotoText = styled.div`
   line-height: 1.3;
   font-weight: 400;
 `;
+
+export const Widget = styled.div`
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.333;
+    }
+    .connections {
+      color: rgba(0, 0, 0, 0.6);
+    }
+    .network {
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+`;
+
+export const Item = styled.a`
+  padding: 12px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+`;
