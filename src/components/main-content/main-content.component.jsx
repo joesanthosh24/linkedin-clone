@@ -11,6 +11,7 @@ import {
   Description,
   ArticleImage,
   SocialData,
+  SocialReact,
 } from "./main-content.styles";
 
 const MainContent = () => {
@@ -73,7 +74,26 @@ const MainContent = () => {
             <img src="/images/lightbulb.svg" alt="Lightbulb" />
             <img src="/images/maybe.svg" alt="Maybe" />
             <img src="/images/support.svg" alt="Support" />
+            <span>200 * 20 comments</span>
           </SocialData>
+          <SocialReact>
+            <button>
+              <img src="/images/like-icon.svg" alt="Like Post" />
+              <span>Like</span>
+            </button>
+            <button>
+              <img src="/images/comment-icon.svg" alt="Comment on Post" />
+              <span>Comment</span>
+            </button>
+            <button>
+              <img src="/images/share-icon.svg" alt="Share Post" />
+              <span>Share</span>
+            </button>
+            <button>
+              <img src="/images/send-icon.svg" alt="Send Post as Message" />
+              <span>Send</span>
+            </button>
+          </SocialReact>
         </Article>
       </div>
     </Container>

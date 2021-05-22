@@ -158,13 +158,35 @@ export const ArticleImage = styled.div`
 `;
 
 export const SocialData = styled.div`
-  padding: 5px 10px 10px;
+  padding: 5px 0 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
 
   img {
     height: 16px;
     width: 16px;
     margin-right: 3px;
+  }
+`;
+
+export const SocialReact = styled.div`
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    padding: 15px 0;
+    color: rgba(0, 0, 0, 0.6);
+
+    span {
+      margin-left: 5px;
+    }
   }
 `;
