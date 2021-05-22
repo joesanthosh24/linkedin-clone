@@ -78,3 +78,67 @@ export const IconContainer = styled.div`
     }
   }
 `;
+
+export const Article = styled(CommonCard)`
+  padding: 0;
+  margin: 0 0 8px;
+  overflow: visible;
+
+  p {
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+`;
+
+export const Profile = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: flex-start;
+
+  a {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+
+      span {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.6);
+
+        &:first-child {
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+    }
+  }
+
+  button {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      padding: 5px;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+`;

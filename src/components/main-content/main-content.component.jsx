@@ -6,6 +6,8 @@ import {
   IconContainer,
   PostContainer,
   PostInfo,
+  Article,
+  Profile,
 } from "./main-content.styles";
 
 const MainContent = () => {
@@ -37,6 +39,24 @@ const MainContent = () => {
           </IconContainer>
         </PostContainer>
       </CommonCard>
+      <div>
+        <Article>
+          <Profile>
+            <a>
+              <img src="/images/user.svg" alt="User" />
+              <div>
+                <span>Title</span>
+                <span>Info</span>
+                <span>Date</span>
+              </div>
+            </a>
+            <button>
+              <img src="/images/ellipsis-icon.svg" alt="Ellipsis" />
+            </button>
+          </Profile>
+          <p>Hello There</p>
+        </Article>
+      </div>
     </Container>
   );
 };
