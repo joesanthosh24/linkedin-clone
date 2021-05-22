@@ -8,6 +8,9 @@ import {
   PostInfo,
   Article,
   Profile,
+  Description,
+  ArticleImage,
+  SocialData,
 } from "./main-content.styles";
 
 const MainContent = () => {
@@ -54,7 +57,23 @@ const MainContent = () => {
               <img src="/images/ellipsis-icon.svg" alt="Ellipsis" />
             </button>
           </Profile>
-          <p>Hello There</p>
+          <Description>Description</Description>
+          <ArticleImage>
+            <a>
+              <img
+                src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTk2ODUyMTMxNzM0ODcy/gettyimages-1229892983-square.jpg"
+                alt="Elon Musk"
+              />
+            </a>
+          </ArticleImage>
+          <SocialData>
+            <img src="/images/likes.svg" alt="Likes" />
+            <img src="/images/heart.svg" alt="Heart" />
+            <img src="/images/clap.svg" alt="Clap" />
+            <img src="/images/lightbulb.svg" alt="Lightbulb" />
+            <img src="/images/maybe.svg" alt="Maybe" />
+            <img src="/images/support.svg" alt="Support" />
+          </SocialData>
         </Article>
       </div>
     </Container>

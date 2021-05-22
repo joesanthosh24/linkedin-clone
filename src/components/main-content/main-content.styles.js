@@ -83,12 +83,6 @@ export const Article = styled(CommonCard)`
   padding: 0;
   margin: 0 0 8px;
   overflow: visible;
-
-  p {
-    text-align: left;
-    padding-left: 10px;
-    padding-bottom: 10px;
-  }
 `;
 
 export const Profile = styled.div`
@@ -140,5 +134,37 @@ export const Profile = styled.div`
     &:active {
       background-color: rgba(0, 0, 0, 0.12);
     }
+  }
+`;
+
+export const Description = styled.div`
+  padding-left: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.9);
+  text-align: left;
+`;
+
+export const ArticleImage = styled.div`
+  a {
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+`;
+
+export const SocialData = styled.div`
+  padding: 5px 10px 10px;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  img {
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
   }
 `;
