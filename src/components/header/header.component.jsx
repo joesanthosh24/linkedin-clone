@@ -34,10 +34,10 @@ const Header = () => {
         <Nav>
           <NavListWrap>
             <NavList className="active">
-              <a href="/home">
+              <Link to="/home">
                 <img src="/images/nav-home.svg" alt="Nav Home" />
                 <span>Home</span>
-              </a>
+              </Link>
             </NavList>
             <NavList>
               <a href="/network">
@@ -72,7 +72,7 @@ const Header = () => {
                 </span>
               </a>
               <SignOut>
-                <a href="/">Sign Out</a>
+                <Link to="/">Sign Out</Link>
               </SignOut>
             </User>
             <Work>
