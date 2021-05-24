@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { signInWithGoogle } from "../../redux/actions/index";
 
 import {
   Container,
@@ -11,7 +14,7 @@ import {
   Google,
 } from "./login.styles";
 
-const Login = () => {
+const Login = ({ signIn }) => {
   return (
     <Container>
       <Nav>
@@ -29,7 +32,7 @@ const Login = () => {
           <img src="/images/login-hero.svg" alt="Login Hero" />
         </SectionContent>
         <Form>
-          <Google>
+          <Google onClick={() => signIn()}>
             <img src="/images/google.svg" alt="Google Logo" />
             Sign In With Google
           </Google>
@@ -39,4 +42,10 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInWithGoogle()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
