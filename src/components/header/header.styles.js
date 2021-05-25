@@ -152,6 +152,10 @@ export const SignOut = styled.div`
   &:active {
     text-decoration: none;
   }
+
+  p {
+    cursor: pointer;
+  }
 `;
 
 export const User = styled(NavList)`

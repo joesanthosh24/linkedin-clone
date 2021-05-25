@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import { signInWithGoogle } from "../../redux/actions/index";
 
@@ -14,9 +15,10 @@ import {
   Google,
 } from "./login.styles";
 
-const Login = ({ signIn }) => {
+const Login = ({ signIn, user }) => {
   return (
     <Container>
+      {user && <Redirect to="/home" />}
       <Nav>
         <Link to="/">
           <img src="/images/login-logo.svg" alt="Login Logo" />
@@ -42,7 +44,9 @@ const Login = ({ signIn }) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  user: state.userState.user,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   signIn: () => dispatch(signInWithGoogle()),

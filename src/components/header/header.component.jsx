@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
 import {
   Container,
@@ -14,9 +15,12 @@ import {
   SignOut,
 } from "./header.styles";
 
-const Header = () => {
+import { signOut } from "../../redux/actions/index";
+
+const Header = ({ signOut, user }) => {
   return (
     <Container>
+      {!user && <Redirect to="/" />}
       <Content>
         <Logo>
           <Link to="/home">
@@ -65,14 +69,18 @@ const Header = () => {
             </NavList>
             <User>
               <a>
-                <img src="/images/user.svg" alt="User" />
+                {user && user.photoURL ? (
+                  <img src={user.photoURL} alt="User" />
+                ) : (
+                  <img src="/images/user.svg" alt="User no pic" />
+                )}
                 <span>
                   Me
                   <img src="/images/down-icon.svg" alt="Dropdown" />
                 </span>
               </a>
-              <SignOut>
-                <Link to="/">Sign Out</Link>
+              <SignOut onClick={() => signOut()}>
+                <p>Sign Out</p>
               </SignOut>
             </User>
             <Work>
@@ -91,4 +99,12 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.userState.user,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOut()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
