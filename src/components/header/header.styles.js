@@ -9,6 +9,10 @@ export const Container = styled.div`
   top: 0;
   width: 100vw;
   z-index: 100;
+
+  @media screen and (max-width: 768px) {
+    background-color: white;
+  }
 `;
 
 export const Content = styled.div`
@@ -72,7 +76,7 @@ export const Nav = styled.nav`
     position: fixed;
     left: 0;
     bottom: 0;
-    backgorund: white;
+    background-color: white;
     width: 100%;
   }
 `;
@@ -155,6 +159,13 @@ export const SignOut = styled.div`
 
   p {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: -40px;
+    border-radius: 5px 5px 0 0;
+    background-color: black;
+    color: white;
   }
 `;
 

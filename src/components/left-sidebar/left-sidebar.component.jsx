@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import {
   Container,
   ProfileCard,
@@ -11,7 +13,7 @@ import {
   CommunityCard,
 } from "./left-sidebar.styles";
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ user }) => {
   return (
     <Container>
       <ProfileCard>
@@ -19,7 +21,7 @@ const LeftSidebar = () => {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, There!</Link>
+            <Link>Welcome, {user ? user.displayName : "there"}!</Link>
           </a>
           <a>
             <AddPhotoText>Add a Photo</AddPhotoText>
@@ -62,4 +64,8 @@ const LeftSidebar = () => {
   );
 };
 
-export default LeftSidebar;
+const mapStateToProps = (state) => ({
+  user: state.userState.user,
+});
+
+export default connect(mapStateToProps)(LeftSidebar);

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -20,7 +20,6 @@ import { signOut } from "../../redux/actions/index";
 const Header = ({ signOut, user }) => {
   return (
     <Container>
-      {!user && <Redirect to="/" />}
       <Content>
         <Logo>
           <Link to="/home">
