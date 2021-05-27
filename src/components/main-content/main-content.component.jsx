@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   CommonCard,
   Container,
@@ -14,14 +16,20 @@ import {
   SocialReact,
 } from "./main-content.styles";
 
+import PostModal from "../../components/post-modal/post-modal.component";
+
 const MainContent = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
       <CommonCard>
         <PostContainer>
           <PostInfo>
             <Photo />
-            <PostButton>Start A Post</PostButton>
+            <PostButton onClick={() => setIsModalOpen(true)}>
+              Start A Post
+            </PostButton>
           </PostInfo>
           <IconContainer>
             <button>
@@ -96,6 +104,7 @@ const MainContent = () => {
           </SocialReact>
         </Article>
       </div>
+      {isModalOpen && <PostModal />}
     </Container>
   );
 };
