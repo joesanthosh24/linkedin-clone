@@ -104,7 +104,7 @@ const MainContent = () => {
           </SocialReact>
         </Article>
       </div>
-      {isModalOpen && <PostModal />}
+      {isModalOpen && <PostModal closeModal={() => setIsModalOpen(false)} />}
     </Container>
   );
 };

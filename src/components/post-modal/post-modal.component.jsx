@@ -6,13 +6,13 @@ import {
   UserInfo,
 } from "./post-modal.styles";
 
-const PostModal = () => {
+const PostModal = ({ closeModal }) => {
   return (
     <Container>
       <Content>
         <Header>
           <h2>Create a Post</h2>
-          <button>
+          <button onClick={closeModal}>
             <img src="/images/close-icon.svg" alt="Close" />
           </button>
         </Header>
