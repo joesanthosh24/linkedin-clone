@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 552px;
+  max-width: 600px;
   background-color: white;
   max-height: 90%;
   overflow: initial;
@@ -75,7 +75,6 @@ export const SharedContent = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 20px;
 
   img,
   svg {
@@ -91,5 +90,80 @@ export const UserInfo = styled.div`
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
+  }
+`;
+
+export const ShareCreation = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 12px 0 12px 16px;
+`;
+
+export const AttachAssets = styled.div`
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
+export const AssetButton = styled.button`
+  margin-right: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  img,
+  svg {
+    margin-top: 5px;
+  }
+`;
+
+export const CommentAndPost = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  > button.post {
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.12);
+    padding: 10px 5px;
+    margin-left: auto;
+    margin-right: 15px;
+    width: 65px;
+    background-color: #0a66c2;
+    color: #fff;
+
+    &:disabled {
+      background-color: rgba(0, 0, 0, 0.08);
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+`;
+
+export const CommentOnButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 25px;
+  border: none;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    margin-right: 5px;
   }
 `;
