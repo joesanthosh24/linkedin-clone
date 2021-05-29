@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
   Container,
   Content,
@@ -9,15 +11,23 @@ import {
   AssetButton,
   CommentAndPost,
   CommentOnButton,
+  Editor,
 } from "./post-modal.styles";
 
 const PostModal = ({ closeModal }) => {
+  const [postMessage, setPostMessage] = useState("");
+
+  const handleClose = () => {
+    setPostMessage("");
+    closeModal();
+  };
+
   return (
     <Container>
       <Content>
         <Header>
           <h2>Create a Post</h2>
-          <button onClick={closeModal}>
+          <button onClick={handleClose}>
             <img src="/images/close-icon.svg" alt="Close" />
           </button>
         </Header>
@@ -26,6 +36,14 @@ const PostModal = ({ closeModal }) => {
             <img src="/images/user.svg" alt="User" />
             <span>Name</span>
           </UserInfo>
+          <Editor>
+            <textarea
+              value={postMessage}
+              onChange={(e) => setPostMessage(e.target.value)}
+              placeholder="What do you want to talk about?"
+              autoFocus={true}
+            ></textarea>
+          </Editor>
         </SharedContent>
         <ShareCreation>
           <AttachAssets>
@@ -56,7 +74,7 @@ const PostModal = ({ closeModal }) => {
               <img src="/images/comment-icon.svg" alt="Comment" />
               <span>Anyone</span>
             </CommentOnButton>
-            <button disabled className="post">
+            <button disabled={!postMessage ? true : false} className="post">
               Post
             </button>
           </CommentAndPost>

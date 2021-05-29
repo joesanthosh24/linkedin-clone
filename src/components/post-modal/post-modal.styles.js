@@ -9,6 +9,25 @@ export const Container = styled.div`
   z-index: 9999;
   color: black;
   background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease-in;
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -43,7 +62,8 @@ export const Header = styled.div`
     border-radius: 50%;
     border: none;
 
-    svg {
+    svg,
+    img {
       pointer-events: none;
 
       &:active {
@@ -135,17 +155,26 @@ export const CommentAndPost = styled.div`
   > button.post {
     border-radius: 25px;
     border: none;
-    background-color: rgba(0, 0, 0, 0.12);
     padding: 10px 5px;
     margin-left: auto;
     margin-right: 15px;
     width: 65px;
     background-color: #0a66c2;
     color: #fff;
+    cursor: pointer;
 
     &:disabled {
       background-color: rgba(0, 0, 0, 0.08);
       color: rgba(0, 0, 0, 0.3);
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    &:hover {
+      background-color: #004182;
     }
   }
 `;
@@ -165,5 +194,23 @@ export const CommentOnButton = styled.button`
 
   img {
     margin-right: 5px;
+  }
+`;
+
+export const Editor = styled.div`
+  width: 100%;
+  padding-top: 12px;
+
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: none;
+  }
+
+  input {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 15px;
   }
 `;
