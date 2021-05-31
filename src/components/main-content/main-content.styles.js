@@ -46,7 +46,7 @@ export const PostButton = styled.button`
 `;
 
 export const Photo = styled.div`
-  background-image: url("/images/user.svg");
+  background-image: ${(props) => `url(${props.image})`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -188,5 +188,13 @@ export const SocialReact = styled.div`
     span {
       margin-left: 5px;
     }
+  }
+`;
+
+export const Content = styled.div`
+  text-align: center;
+
+  & > img {
+    width: 30px;
   }
 `;

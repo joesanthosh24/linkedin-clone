@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { connect } from "react-redux";
 
 import {
   CommonCard,
@@ -14,11 +15,12 @@ import {
   ArticleImage,
   SocialData,
   SocialReact,
+  Content,
 } from "./main-content.styles";
 
 import PostModal from "../../components/post-modal/post-modal.component";
 
-const MainContent = () => {
+const MainContent = ({ user, loading }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -26,8 +28,12 @@ const MainContent = () => {
       <CommonCard>
         <PostContainer>
           <PostInfo>
-            <Photo />
-            <PostButton onClick={() => setIsModalOpen(true)}>
+            {user && user.photoURL ? (
+              <Photo image={user.photoURL} />
+            ) : (
+              <Photo image="/images/user.svg" />
+            )}
+            <PostButton onClick={() => setIsModalOpen(true)} disabled={loading}>
               Start A Post
             </PostButton>
           </PostInfo>
@@ -51,7 +57,8 @@ const MainContent = () => {
           </IconContainer>
         </PostContainer>
       </CommonCard>
-      <div>
+      <Content>
+        {loading && <img src="/images/loader.gif" alt="Loading" />}
         <Article>
           <Profile>
             <a>
@@ -103,10 +110,17 @@ const MainContent = () => {
             </button>
           </SocialReact>
         </Article>
-      </div>
+      </Content>
       {isModalOpen && <PostModal closeModal={() => setIsModalOpen(false)} />}
     </Container>
   );
 };
 
-export default MainContent;
+const mapStateToProps = (state) => ({
+  user: state.userState.user,
+  loading: state.articleState.loading,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
