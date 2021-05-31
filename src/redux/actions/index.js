@@ -1,4 +1,10 @@
-import { signUserOut, setUser } from "./action-functions";
+import {
+  signUserOut,
+  setUser,
+  addPostRequest,
+  addPostSuccess,
+  addPostFailed,
+} from "./action-functions";
 import db, { auth, provider, storage } from "../../firebase";
 
 export function signInWithGoogle() {
@@ -39,6 +45,7 @@ export function getUserAuth() {
 
 export function postArticle(payload) {
   return (dispatch) => {
+    dispatch(addPostRequest());
     if (payload.image !== "") {
       const upload = storage
         .ref(`images/${payload.image.name}`)
@@ -56,7 +63,11 @@ export function postArticle(payload) {
             console.log(`Progress: ${progress}%`);
           }
         },
-        (error) => console.log(error.code),
+        (error) => {
+          dispatch(addPostFailed(error.message));
+
+          console.log(error.code);
+        },
         async () => {
           const downloadURL = await upload.snapshot.ref.getDownloadURL();
           db.collection("articles").add({
@@ -71,8 +82,24 @@ export function postArticle(payload) {
             comments: 0,
             description: payload.description,
           });
+
+          dispatch(addPostSuccess());
         }
       );
+    } else if (payload.video) {
+      db.collection("articles").add({
+        actor: {
+          description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL,
+        },
+        video: payload.video,
+        sharedImg: "",
+        comments: 0,
+        description: payload.description,
+      });
+      dispatch(addPostSuccess());
     }
   };
 }

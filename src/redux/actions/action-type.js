@@ -1,2 +1,5 @@
 export const SET_USER = "SET_USER";
 export const SIGN_USER_OUT = "SIGN_USER_OUT";
+export const ADD_POST_REQUEST = "SET_POST_REQUEST";
+export const ADD_POST_SUCCESS = "SET_POST_SUCCESS";
+export const ADD_POST_FAILURE = "SET_POST_FAILURE";
