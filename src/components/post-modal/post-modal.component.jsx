@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
   Container,
@@ -12,10 +12,23 @@ import {
   CommentAndPost,
   CommentOnButton,
   Editor,
+  UploadImage,
 } from "./post-modal.styles";
 
 const PostModal = ({ closeModal }) => {
   const [postMessage, setPostMessage] = useState("");
+  const [postImage, setPostImage] = useState("");
+
+  const handleFileChange = (e) => {
+    const image = e.target.files[0];
+
+    if (image === "" || image === undefined) {
+      alert(`Not an image, the file is a ${typeof image}`);
+      return;
+    }
+
+    setPostImage(image);
+  };
 
   const handleClose = () => {
     setPostMessage("");
@@ -42,7 +55,23 @@ const PostModal = ({ closeModal }) => {
               onChange={(e) => setPostMessage(e.target.value)}
               placeholder="What do you want to talk about?"
               autoFocus={true}
-            ></textarea>
+            />
+            <UploadImage>
+              <input
+                type="file"
+                accept="image/gif, image/jpeg, image/png"
+                name="image"
+                id="file"
+                style={{ display: "none" }}
+                onChange={handleFileChange}
+              />
+              <p>
+                <label htmlFor="file">Select an image to share</label>
+              </p>
+              {postImage && (
+                <img src={URL.createObjectURL(postImage)} alt="Post Image" />
+              )}
+            </UploadImage>
           </Editor>
         </SharedContent>
         <ShareCreation>

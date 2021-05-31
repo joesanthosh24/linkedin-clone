@@ -214,3 +214,11 @@ export const Editor = styled.div`
     margin-bottom: 15px;
   }
 `;
+
+export const UploadImage = styled.div`
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+`;
