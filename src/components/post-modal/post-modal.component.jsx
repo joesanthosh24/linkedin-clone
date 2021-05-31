@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import ReactPlayer from "react-player";
+import firebase from "firebase";
+
+import { postArticle } from "../../redux/actions";
 
 import {
   Container,
@@ -17,7 +20,7 @@ import {
   UploadImage,
 } from "./post-modal.styles";
 
-const PostModal = ({ closeModal, user }) => {
+const PostModal = ({ closeModal, user, postArticle }) => {
   const [postMessage, setPostMessage] = useState("");
   const [postImage, setPostImage] = useState("");
   const [postVideo, setPostVideo] = useState("");
@@ -48,6 +51,23 @@ const PostModal = ({ closeModal, user }) => {
     setPostVideo("");
 
     setShareArea(area);
+  };
+
+  const postTheArticle = (e) => {
+    e.preventDefault();
+
+    if (e.target !== e.currentTarget) return;
+
+    const payload = {
+      image: postImage,
+      video: postVideo,
+      user,
+      description: postMessage,
+      timestamp: firebase.firestore.Timestamp.now(),
+    };
+
+    postArticle(payload);
+    handleClose();
   };
 
   return (
@@ -138,8 +158,9 @@ const PostModal = ({ closeModal, user }) => {
               <span>Anyone</span>
             </CommentOnButton>
             <button
-              disabled={!postMessage || !postImage || !postVideo ? true : false}
+              disabled={!postMessage ? true : false}
               className="post"
+              onClick={(e) => postTheArticle(e)}
             >
               Post
             </button>
@@ -154,6 +175,8 @@ const mapStateToProps = (state) => ({
   user: state.userState.user,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  postArticle: (payload) => dispatch(postArticle(payload)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostModal);
