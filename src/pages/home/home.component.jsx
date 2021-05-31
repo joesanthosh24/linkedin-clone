@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 import { Container, Section, Layout } from "./home.styles";
@@ -13,7 +14,7 @@ const Home = ({ user }) => {
       {!user && <Redirect to="/" />}
       <Section>
         <h5>
-          <a>Hiring in a hurry? - </a>
+          <Link to="/home">Hiring in a hurry? - </Link>
         </h5>
         <p>
           Find talented pros in record tim with Upwork and keep business moving

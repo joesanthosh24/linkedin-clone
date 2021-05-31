@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { Link as RouterLink } from "react-router-dom";
 
 import {
   Container,
@@ -19,22 +20,22 @@ const LeftSidebar = ({ user }) => {
       <ProfileCard>
         <UserInfo>
           <CardBackground />
-          <a>
+          <RouterLink to="/home">
             <Photo />
             <Link>Welcome, {user ? user.displayName : "there"}!</Link>
-          </a>
-          <a>
+          </RouterLink>
+          <RouterLink to="/home">
             <AddPhotoText>Add a Photo</AddPhotoText>
-          </a>
+          </RouterLink>
         </UserInfo>
         <Widget>
-          <a>
+          <RouterLink to="/home">
             <div>
               <span className="connections">Connections</span>
               <span className="network">Grow your network</span>
             </div>
             <img src="images/widget-icon.svg" alt="Widget" />
-          </a>
+          </RouterLink>
         </Widget>
         <Item>
           <span className="item-img">
@@ -44,21 +45,21 @@ const LeftSidebar = ({ user }) => {
         </Item>
       </ProfileCard>
       <CommunityCard>
-        <a>
+        <RouterLink to="/home">
           <span>Groups</span>
-        </a>
-        <a>
+        </RouterLink>
+        <RouterLink to="/home">
           <span className="community__events">
             Events
             <img src="/images/plus-icon.svg" alt="Plus" />
           </span>
-        </a>
-        <a>
+        </RouterLink>
+        <RouterLink to="/home">
           <span>Follows Hashtags</span>
-        </a>
-        <a className="community__discover">
+        </RouterLink>
+        <RouterLink to="/home" className="community__discover">
           <span>Discover More</span>
-        </a>
+        </RouterLink>
       </CommunityCard>
     </Container>
   );

@@ -188,6 +188,7 @@ export const SocialReact = styled.div`
     color: rgba(0, 0, 0, 0.6);
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.08);

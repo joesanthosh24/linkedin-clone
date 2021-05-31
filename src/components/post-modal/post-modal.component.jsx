@@ -109,7 +109,7 @@ const PostModal = ({ closeModal, user, postArticle }) => {
                   <label htmlFor="file">Select an image to share</label>
                 </p>
                 {postImage && (
-                  <img src={URL.createObjectURL(postImage)} alt="Post Image" />
+                  <img src={URL.createObjectURL(postImage)} alt="Post Pic" />
                 )}
               </UploadImage>
             ) : (
@@ -131,7 +131,7 @@ const PostModal = ({ closeModal, user, postArticle }) => {
         <ShareCreation>
           <AttachAssets>
             <AssetButton onClick={() => switchShareArea("image")}>
-              <img src="/images/share-image.svg" alt="Share Picture" />
+              <img src="/images/share-image.svg" alt="Share Pic" />
             </AssetButton>
             <AssetButton onClick={() => switchShareArea("media")}>
               <img src="/images/share-video.svg" alt="Share Video" />

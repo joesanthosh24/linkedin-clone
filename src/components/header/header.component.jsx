@@ -43,31 +43,31 @@ const Header = ({ signOut, user }) => {
               </Link>
             </NavList>
             <NavList>
-              <a href="/network">
+              <Link to="/home">
                 <img src="/images/nav-network.svg" alt="Nav Home" />
                 <span>My Network</span>
-              </a>
+              </Link>
             </NavList>
             <NavList>
-              <a href="/jobs">
+              <Link to="/home">
                 <img src="/images/nav-jobs.svg" alt="Nav Home" />
                 <span>Jobs</span>
-              </a>
+              </Link>
             </NavList>
             <NavList>
-              <a href="/messaging">
+              <Link onTouchEnd="/home">
                 <img src="/images/nav-messaging.svg" alt="Nav Home" />
                 <span>Messaging</span>
-              </a>
+              </Link>
             </NavList>
             <NavList>
-              <a href="/notifications">
+              <Link to="/home">
                 <img src="/images/nav-notifications.svg" alt="Nav Home" />
                 <span>Notifications</span>
-              </a>
+              </Link>
             </NavList>
             <User>
-              <a>
+              <a href="/home">
                 {user && user.photoURL ? (
                   <img src={user.photoURL} alt="User" />
                 ) : (
@@ -83,13 +83,13 @@ const Header = ({ signOut, user }) => {
               </SignOut>
             </User>
             <Work>
-              <a href="/work">
+              <Link to="/home">
                 <img src="/images/nav-work.svg" alt="Work" />
                 <span>
                   Work
                   <img src="/images/down-icon.svg" alt="Dropdown" />
                 </span>
-              </a>
+              </Link>
             </Work>
           </NavListWrap>
         </Nav>

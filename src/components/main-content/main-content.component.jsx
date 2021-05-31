@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 
 import { getArticles } from "../../redux/actions";
@@ -62,19 +63,19 @@ const MainContent = ({
               </PostInfo>
               <IconContainer>
                 <button>
-                  <img src="/images/photo-icon.svg" alt="Photo" />
+                  <img src="/images/photo-icon.svg" alt="Pic Icon" />
                   Photo
                 </button>
                 <button>
-                  <img src="/images/video-icon.svg" alt="Photo" />
+                  <img src="/images/video-icon.svg" alt="Video Icon" />
                   Video
                 </button>
                 <button>
-                  <img src="/images/event-icon.svg" alt="Photo" />
+                  <img src="/images/event-icon.svg" alt="Event Icon" />
                   Event
                 </button>
                 <button>
-                  <img src="/images/article-icon.svg" alt="Photo" />
+                  <img src="/images/article-icon.svg" alt="Article Icon" />
                   Write Article
                 </button>
               </IconContainer>
@@ -85,7 +86,7 @@ const MainContent = ({
             {articles.map((article) => (
               <Article key={article.id}>
                 <Profile>
-                  <a>
+                  <Link to="/home">
                     <img src={article.actor.image} alt="User" />
                     <div>
                       <span>{article.actor.title}</span>
@@ -94,7 +95,7 @@ const MainContent = ({
                         {article.actor.date.toDate().toLocaleDateString()}
                       </span>
                     </div>
-                  </a>
+                  </Link>
                   <button>
                     <img src="/images/ellipsis-icon.svg" alt="Ellipsis" />
                   </button>
@@ -102,9 +103,9 @@ const MainContent = ({
                 <Description>{article.description}</Description>
                 {article.sharedImg ? (
                   <ArticleImage>
-                    <a>
+                    <Link to="/home">
                       <img src={article.sharedImg} alt={article.description} />
-                    </a>
+                    </Link>
                   </ArticleImage>
                 ) : article.video ? (
                   <ReactPlayer width={"100%"} url={article.video} />

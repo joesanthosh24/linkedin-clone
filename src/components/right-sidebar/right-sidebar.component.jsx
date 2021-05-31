@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   Container,
   FollowCard,
@@ -18,18 +20,18 @@ const RightSidebar = () => {
         </Title>
         <FollowLinks>
           <li>
-            <a>
+            <Link to="/home">
               <Avatar />
-            </a>
+            </Link>
             <div>
               <span>#Linkedin</span>
               <button>Follow</button>
             </div>
           </li>
           <li>
-            <a>
+            <Link to="/home">
               <Avatar />
-            </a>
+            </Link>
             <div>
               <span>#Video</span>
               <button>Follow</button>
