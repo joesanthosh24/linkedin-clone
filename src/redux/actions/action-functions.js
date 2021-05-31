@@ -4,6 +4,7 @@ import {
   ADD_POST_REQUEST,
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
+  ADD_ARTICLES,
 } from "./action-type";
 
 export const setUser = (user) => ({
@@ -26,4 +27,9 @@ export const addPostFailed = (errorMsg) => ({
 
 export const addPostSuccess = () => ({
   type: ADD_POST_SUCCESS,
+});
+
+export const adddArticles = (payload) => ({
+  type: ADD_ARTICLES,
+  payload,
 });

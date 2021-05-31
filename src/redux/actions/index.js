@@ -4,6 +4,7 @@ import {
   addPostRequest,
   addPostSuccess,
   addPostFailed,
+  adddArticles,
 } from "./action-functions";
 import db, { auth, provider, storage } from "../../firebase";
 
@@ -101,5 +102,18 @@ export function postArticle(payload) {
       });
       dispatch(addPostSuccess());
     }
+  };
+}
+
+export function getArticles() {
+  return (dispatch) => {
+    let payload;
+
+    db.collection("articles")
+      .orderBy("actor.date", "desc")
+      .onSnapshot(async (snapshot) => {
+        payload = await snapshot.docs.map((doc) => doc.data());
+        dispatch(adddArticles(payload));
+      });
   };
 }
