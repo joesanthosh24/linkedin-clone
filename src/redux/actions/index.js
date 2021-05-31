@@ -112,7 +112,10 @@ export function getArticles() {
     db.collection("articles")
       .orderBy("actor.date", "desc")
       .onSnapshot(async (snapshot) => {
-        payload = await snapshot.docs.map((doc) => doc.data());
+        payload = await snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
         dispatch(adddArticles(payload));
       });
   };

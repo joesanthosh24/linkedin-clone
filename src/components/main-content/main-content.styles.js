@@ -98,12 +98,14 @@ export const Profile = styled.div`
     img {
       height: 40px;
       width: 40px;
+      border-radius: 50%;
     }
 
     div {
       display: flex;
       flex-direction: column;
       margin-left: 10px;
+      align-items: flex-start;
 
       span {
         font-size: 12px;
@@ -181,9 +183,15 @@ export const SocialReact = styled.div`
   button {
     display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin: 5px 15px 5px 0px;
     padding: 15px 0;
     color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
 
     span {
       margin-left: 5px;
